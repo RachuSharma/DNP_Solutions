@@ -14,6 +14,5 @@ public class ProjectController : ControllerBase
         _dataService = dataService;
     }
 }
-// 1. create project
-//[HttpPost]
+
 
