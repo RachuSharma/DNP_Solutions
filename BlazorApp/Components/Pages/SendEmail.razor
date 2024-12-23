@@ -1,0 +1,71 @@
+﻿@page "/sender"
+
+@using BlazorApp1.Models
+@using BlazorApp1.Services
+@inject IEmailService EmailService
+
+<h3>SendEmail</h3>
+
+<!-- Page containing input for following email properties: Receiver, Title and Body -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="ReceiverNameInput" class="form-label">Receiver Name</label>
+            <input type="text" id="ReceiverNameInput" class="form-control" @bind="receiver" placeholder="Enter reciver name"/>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+        <label for="TitleInput" class="form-label">Title</label>
+        <input type="text" id="TitleInput" class="form-control" @bind="title" placeholder="Enter title"/>
+    </div>
+</div><div class="row">
+    <div class="col-md-6">
+        <label for="EmailInput" class="form-label">Email</label>
+        <input type="text" id="EmailInput" class="form-control" @bind="body" placeholder="Enter email"/>
+    </div>
+</div>
+</div>
+
+<p role="status">@statusMessage</p>
+<button class="btn btn-primary" @onclick="send">Send</button>
+
+
+@code {
+private string receiver;
+private string title;
+private string body;
+private string statusMessage;
+
+private async Task send()
+{
+    if (string.IsNullOrWhiteSpace(receiver)) //|| string.IsNullOrWhiteSpace(password))
+    {
+        statusMessage = "All fields are required.";
+        return;
+    }
+
+    try
+    {
+    var email = new Email("Rachana Sharma", receiver, title, body, DateTime.Now);
+    await EmailService.SendEmail(email);
+    
+    receiver = string.Empty;
+    title = string.Empty;
+    body = string.Empty;
+    
+    statusMessage = "Email sent successfully!";
+    
+    await Task.Delay(3000);
+    statusMessage = string.Empty;
+    
+    
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Error: {e.Message}");
+    }
+}
+
+}

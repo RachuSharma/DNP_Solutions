@@ -34,3 +34,4 @@ C:\Users\racha\RiderProjects\DNPEXAMTEST\WebApi\obj\Debug\net8.0\refint\WebApi.d
 C:\Users\racha\RiderProjects\DNPEXAMTEST\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\racha\RiderProjects\DNPEXAMTEST\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\racha\RiderProjects\DNPEXAMTEST\WebApi\obj\Debug\net8.0\ref\WebApi.dll
+C:\Users\racha\RiderProjects\DNPEXAMTEST\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json

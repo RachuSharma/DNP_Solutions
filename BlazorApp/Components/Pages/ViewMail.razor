@@ -1,0 +1,70 @@
+﻿@page "/viewemails"
+@using BlazorApp1.Services
+
+@using BlazorApp1.Models
+@rendermode InteractiveServer
+
+<h3>ViewEmails</h3>
+@inject IEmailService EmailService
+
+@if(_emails == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (_emails.Count == 0)
+{
+    <p>No emails found</p>
+}
+else
+{
+    {
+        <div>
+            <!--<p><strong>Incoming:</strong> @IncomingCount | <strong>Sent:</strong> @SentCount</p>-->
+            <div style="display: flex;">
+                <div style="width: 40%; border-right: 1px solid black;">
+                    @foreach (var email in _emails)
+                    {
+                        <div style="cursor: pointer; padding: 5px; border-bottom: 1px solid gray;" @onclick="() => ShowEmail(email)">
+                            <p><strong>From:</strong> @email.Sender</p>
+                            <p><strong>Title:</strong>@email.Title</p>
+                        </div>
+                    }
+                </div>
+                <div style="width: 60%; padding: 10px;">
+                    @if (_selectedEmail != null)
+                    {
+                        <h4>Email details</h4>
+                        <div class="col-md-6">
+
+                            <p><strong>From:</strong> @_selectedEmail.Sender</p><hr/>
+                            <p><strong>Title:</strong> @_selectedEmail.Title</p><hr/>
+                            <p><strong>Time sent:</strong> @_selectedEmail.TimeSent</p><hr/>
+                            <p><strong>Body:</strong></p>
+                            <p>@_selectedEmail.Body</p>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <p>Select an email to view details</p>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+@code {
+    private List<Email?>? _emails;
+    private Email? _selectedEmail;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _emails = await EmailService.GetEmails();
+    }
+
+    
+    private void ShowEmail(Email? email)
+    {
+        _selectedEmail = email;
+    }
+}}

@@ -75,22 +75,11 @@ public class DataService: IDataService
         return project;
     }
 
-
-    public IQueryable<Project> GetProjects(string? status = null, string? responsible = null)
+    public Project? GetProjects(string? status = null, string? responsible = null)
     {
-        var query = _projects.AsQueryable();
-        if (!string.IsNullOrWhiteSpace(status))
-        {
-            query = query.Where(p => p.Status.Equals(status, StringComparison.OrdinalIgnoreCase));
-        }
-
-        if (!string.IsNullOrWhiteSpace(responsible))
-        {
-            query = query.Where(p => p.Responsible.Equals(responsible, StringComparison.OrdinalIgnoreCase));
-        }
-
-        return query;
+        return _projects.FirstOrDefault(p => p.Status == status && p.Responsible == responsible);
     }
+
 
     public void DeleteProjectAsync(int projectId )
     {

@@ -1,10 +1,20 @@
 using BlazorApp1.Components;
+using BlazorApp1.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddScoped(sp => new HttpClient
+{
+    BaseAddress = new Uri("http://localhost:5132")
+});
+
+builder.Services.AddScoped<IEmailService, EmailService>();
+
 
 var app = builder.Build();
 
