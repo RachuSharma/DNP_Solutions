@@ -6,10 +6,10 @@ public interface IDataService
 {
     Task<Project> AddProjectAsync(Project project);
     Task<Project> GetProjectByIdAsync(int projectId);
-    Task UpdateProjectAsync(Project project);
+    Task UpdateProjectAsync(int projectId,Project project);
     Task DeleteProjectAsync(int projectId);
     
-    IQueryable<Project> GetManyProjects();
+    Task<IEnumerable<Project>> GetManyProjects(string? status = null, string? responsible = null);
     
     Task<UserStory> AddUserStoryAsync(int ProjectId ,UserStory userStory);
     

@@ -35,7 +35,7 @@ public class DataService : IDataService
         {
             ProjectId = 2,
             Title = "Project 2",
-            Status = "In Progress",
+            Status = "Finished",
             Responsible = "Jane Doe",
             UserStories =
             [
@@ -55,15 +55,17 @@ public class DataService : IDataService
             ]
         });
     }
+
     public Task<Project> AddProjectAsync(Project project)
     {
         Console.WriteLine(_projects.Count);
         project.ProjectId = _projects.Any()
             ? _projects.Max(p => p.ProjectId) + 1
             : 1;
-         _projects.Add(project);
+        _projects.Add(project);
         Console.WriteLine(_projects.Count);
-        return Task.FromResult(project);    }
+        return Task.FromResult(project);
+    }
 
     public Task<Project> GetProjectByIdAsync(int projectId)
     {
@@ -73,9 +75,10 @@ public class DataService : IDataService
             throw new Exception($"Post with ID '{projectId}' not found");
         }
 
-        return Task.FromResult(project);    }
+        return Task.FromResult(project);
+    }
 
-    public Task UpdateProjectAsync(Project project)
+    public Task UpdateProjectAsync(int projectId, Project project)
     {
         Project? existingPost = _projects.SingleOrDefault(p => p.ProjectId == project.ProjectId);
         if (existingPost is null)
@@ -86,7 +89,8 @@ public class DataService : IDataService
         _projects.Remove(existingPost);
         _projects.Add(project);
 
-        return Task.CompletedTask;    }
+        return Task.CompletedTask;
+    }
 
     public Task DeleteProjectAsync(int projectId)
     {
@@ -98,14 +102,40 @@ public class DataService : IDataService
         }
 
         _projects.Remove(projectToRemove);
-        return Task.CompletedTask;    }
+        return Task.CompletedTask;
+        
+    }
 
-    public IQueryable<Project> GetManyProjects()
+    public Task<IEnumerable<Project>> GetManyProjects(string? status = null, string? responsible = null)
     {
-        return _projects.AsQueryable();    }
+       
+        IEnumerable<Project> filteredProjects = _projects;
+
+        if (!string.IsNullOrEmpty(status))
+        {
+            filteredProjects = filteredProjects.Where(p => p.Status.Equals(status, StringComparison.OrdinalIgnoreCase));
+        }
+
+        if (!string.IsNullOrEmpty(responsible))
+        {
+            filteredProjects = filteredProjects.Where(p => p.Responsible.Equals(responsible, StringComparison.OrdinalIgnoreCase));
+        }
+
+        return Task.FromResult(filteredProjects);
+    }
 
     public Task<UserStory> AddUserStoryAsync(int ProjectId, UserStory userStory)
     {
-        throw new NotImplementedException();
+        var project = _projects.SingleOrDefault(p => p.ProjectId == ProjectId);
+        if (project is null)
+        {
+            throw new Exception($"Post with ID '{ProjectId}' not found");
+        }
+
+        userStory.UserStoryId = project.UserStories.Any()
+            ? project.UserStories.Max(p => p.UserStoryId) + 1
+            : 1;
+        project.UserStories.Add(userStory);
+        return Task.FromResult(userStory);
     }
 }

@@ -13,11 +13,39 @@ public class ProjectsController : ControllerBase
     {
         _dataService = dataService;
     }
+    
+    [HttpPost]
+    public async Task<IActionResult> AddProject([FromBody] Project _project)
+    {
+        try
+        {
+            var  project = await _dataService.AddProjectAsync(_project);
+            
+            return Ok(project);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = ex.Message });
+        }
+        /*  Project project = new Project(request.Title, request.Status, request.Responsible, request.UserStories);
+        Project created = await _dataService.AddProjectAsync(project);
+       
+        return Created($"/Projects/{created.ProjectId}", created);
+        */
+    }
 
     [HttpGet]
-    public IQueryable<Project> GetProjects()
+    public async Task<ActionResult<IEnumerable<Project>>> GetAllProjects([FromQuery] string? status = null, [FromQuery] string? responsible = null)
     {
-        return _dataService.GetManyProjects();
+        try
+        {
+            var projects = await _dataService.GetManyProjects(status, responsible);
+            return Ok(projects);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { Message = e.Message });
+        }
     }
 
     [HttpGet("{projectId}")]
@@ -26,19 +54,50 @@ public class ProjectsController : ControllerBase
         return _dataService.GetProjectByIdAsync(projectId);
     }
 
-    [HttpPost]
-    public async Task<IActionResult> AddProject([FromBody] Project? _project)
+    
+
+    [HttpPut("{projectId}")]
+    public async Task<IActionResult> UpdateProject([FromRoute] int projectId, [FromBody] Project project)
     {
         try
         {
-          var  project = await _dataService.AddProjectAsync(_project);
-            
-            return Ok(project);
+            await _dataService.UpdateProjectAsync(projectId, project);
+            return Ok();
         }
         catch (Exception ex)
         {
             return BadRequest(new { Message = ex.Message });
         }
     }
+
+    [HttpDelete("{projectId}")]
+    public async Task<IActionResult> DeleteProject([FromRoute]int projectId)
+    {
+        try
+        {
+            await _dataService.DeleteProjectAsync(projectId);
+            return Ok();
+                    
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = ex.Message });
+        }
+    }
+
+    [HttpPost("{projectId}/userstory")]
+    public async Task<IActionResult> AddUserStory([FromRoute]int projectId, [FromBody] UserStory userStory)
+    {
+        try
+        {
+            var userStoryAdded = await _dataService.AddUserStoryAsync(projectId, userStory);
+            return Ok(userStoryAdded);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = ex.Message });
+        }
+    }
+
 }
 
