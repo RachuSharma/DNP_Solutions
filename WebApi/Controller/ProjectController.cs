@@ -31,7 +31,7 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Project>>> GetAllProjects([FromQuery] string? status = null, [FromQuery] string? responsible = null)
+    public async Task<ActionResult<IEnumerable<Project>>> GetManyProjects([FromQuery] string? status = null, [FromQuery] string? responsible = null)
     {
         try
         {
@@ -45,9 +45,17 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpGet("{projectId}")]
-    public Task<Project> GetProject(int projectId)
+    public async Task<IActionResult> GetsingleProject( [FromQuery]int projectId)
     {
-        return _dataService.GetProjectByIdAsync(projectId);
+        try
+        {
+            var project = await _dataService.GetProjectByIdAsync(projectId);
+            return Ok(project);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = ex.Message });
+        }
     }
 
     

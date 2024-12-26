@@ -1,0 +1,28 @@
+﻿@using BlazorApp1.Service
+@inject IKennelService KennelService
+<h3>MaleOrFemale</h3>
+
+<div>
+    <p><b>Number of male Dogs:</b> @maleDogs</p>
+    <p><b>Number of female Dogs:</b> @femaleDogs</p>
+</div>
+
+@code {
+    private int maleDogs;
+    private int femaleDogs;  
+
+    protected override async Task OnInitializedAsync()
+    {
+        var dogs = await KennelService.GetDogs();
+
+        maleDogs = dogs.Count(dogs => dogs.Sex == "Male");
+        femaleDogs = dogs.Count(dogs => dogs.Sex == "Female");
+        
+        /*var emails =  IKennelService();
+
+
+        maleDogs = _dogs.Count(e => e.Sender == "Rachana Sharma");
+        femaleDogs = emails.Count(e => e.Sender != "Rachana Sharma");*/
+    }
+
+}

@@ -14,9 +14,9 @@ public class EmailService : IEmailService
             {
                 new Email("Himal", "Rachu", "Book", "aaaaaaaaa", DateTime.Now),
                 new Email("Ramesh", "Rachu", "Pen", "bbbbbbbbbbbbbbbb", DateTime.Now),
-                new Email("Sita", "Rachu", "work", "ccccccccccccc", DateTime.Now),
+                new Email("Rachana Sharma", "Rachu", "work", "ccccccccccccc", DateTime.Now),
                 new Email("Gita", "Rachu", "Holiday", "ddddddddddd", DateTime.Now),
-                new Email("Hari", "Rachu", "School", "eeeeeeeee", DateTime.Now)
+                new Email("Rachana Sharma", "Rachu", "School", "eeeeeeeee", DateTime.Now)
             }
             ;
     }
@@ -34,4 +34,5 @@ public class EmailService : IEmailService
     {
         return Task.FromResult(_emails);
     }
+    
 }

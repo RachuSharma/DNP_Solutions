@@ -1,0 +1,23 @@
+﻿@using BlazorApp1.Services
+
+@inject IEmailService IEmailService
+
+<!-- Display number of emails sent and received -->
+
+<div>
+    <p><b>Number of emails sent:</b> @emailsSent</p>
+    <p><b>Number of emails received:</b> @emailsReceived</p>
+</div>
+
+@code {
+    private int emailsSent;
+    private int emailsReceived;  
+
+    protected override async Task OnInitializedAsync()
+    {
+        var emails = await IEmailService.GetEmails();
+        emailsSent = emails.Count(e => e.Sender == "Rachana Sharma");
+        emailsReceived = emails.Count(e => e.Sender != "Rachana Sharma");
+    }
+
+}

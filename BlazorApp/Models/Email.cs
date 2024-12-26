@@ -16,4 +16,9 @@ public class Email
         Body = body;
         TimeSent = timeSent;
     }
+
+    public Email()
+    {
+        
+    }
 }

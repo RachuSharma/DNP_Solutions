@@ -3,9 +3,16 @@
 
 @using BlazorApp1.Models
 @rendermode InteractiveServer
-
-<h3>ViewEmails</h3>
 @inject IEmailService EmailService
+
+
+<table><h3>ViewEmails</h3></table>
+
+<!-- Displaying number of emails -->
+<p><b>Number of emails:</b> @_emails.Count</p>
+
+<InOutComp/>
+
 
 @if(_emails == null)
 {
@@ -21,6 +28,8 @@ else
         <div>
             <!--<p><strong>Incoming:</strong> @IncomingCount | <strong>Sent:</strong> @SentCount</p>-->
             <div style="display: flex;">
+                <!-- Displaying number of in or out emails -->
+                
                 <div style="width: 40%; border-right: 1px solid black;">
                     @foreach (var email in _emails)
                     {
@@ -37,6 +46,7 @@ else
                         <div class="col-md-6">
 
                             <p><strong>From:</strong> @_selectedEmail.Sender</p><hr/>
+                            <p><strong>To:</strong> @_selectedEmail.Receiver</p><hr/>
                             <p><strong>Title:</strong> @_selectedEmail.Title</p><hr/>
                             <p><strong>Time sent:</strong> @_selectedEmail.TimeSent</p><hr/>
                             <p><strong>Body:</strong></p>
@@ -46,7 +56,7 @@ else
                     }
                     else
                     {
-                        <p>Select an email to view details</p>
+                        <p><b>Select an email to view details</b></p>
                     }
                 </div>
             </div>
