@@ -1,38 +1,44 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Entities;
 
-namespace WebApi.Controller;
+namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ProjectController : ControllerBase
+public class ProjectsController : ControllerBase
 {
     private readonly IDataService _dataService;
 
-    public ProjectController(IDataService dataService)
+    public ProjectsController(IDataService dataService)
     {
         _dataService = dataService;
     }
 
-    [HttpPost]
-    public ActionResult AddProject([FromBody]Project project)
+    [HttpGet]
+    public IQueryable<Project> GetProjects()
     {
-        _dataService.AddProject(project);
-        return Created($"/api/project/{project.Id}", project);
-
+        return _dataService.GetManyProjects();
     }
 
     [HttpGet("{projectId}")]
-
-    public ActionResult GetProject([FromRoute]int id)
+    public Task<Project> GetProject(int projectId)
     {
-        var project = _dataService.GetProjectById(id);
-        if (project == null) return NotFound();
-        return Ok(project);    }
+        return _dataService.GetProjectByIdAsync(projectId);
+    }
 
-
-
+    [HttpPost]
+    public async Task<IActionResult> AddProject([FromBody] Project? _project)
+    {
+        try
+        {
+          var  project = await _dataService.AddProjectAsync(_project);
+            
+            return Ok(project);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = ex.Message });
+        }
+    }
 }
-
-
 

@@ -1,0 +1,86 @@
+﻿@page "/registerdog"
+@using BlazorApp1.Models
+@using BlazorApp1.Service
+@inject IKennelService KennelService
+
+<h3>RegisterDog</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="NameInput" class="form-label">Dog Name</label>
+            <input type="text" id="NameInput" class="form-control" @bind="name" placeholder="Enter dog name"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="sexInput" class="form-label">Sex</label>
+            <input type="text" id="sexInput" class="form-control" @bind="sex" placeholder="Enter sex"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="breedInput" class="form-label">Breed</label>
+            <input type="text" id="breedInput" class="form-control" @bind="breed" placeholder="Enter breed"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="urlInput" class="form-label">ImageUrl</label>
+            <input type="text" id="urlInput" class="form-control" @bind="url" placeholder="Enter image url"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="descInput" class="form-label">Description</label>
+            <input type="text" id="descInput" class="form-control" @bind="description" placeholder="Enter description"/>
+        </div>
+    </div>
+</div>
+
+<p role="status">@statusMessage</p>
+<button class="btn btn-primary" @onclick="submit">Submit</button>
+
+
+@code {
+
+    private int DogId;
+    private string name;
+    private string sex;
+    private string breed;
+    private string url;
+    private string description;
+    private string statusMessage;
+
+    private async Task submit()
+    {
+        if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(sex) || string.IsNullOrWhiteSpace(breed) || string.IsNullOrWhiteSpace(url) || string.IsNullOrWhiteSpace(description))
+
+        {
+            statusMessage = "All fields are required.";
+            return;
+        }
+
+        try
+        {
+            var dog = new Dog(DogId, name, sex, breed, url, description, DateTime.Now);
+            await KennelService.RegisterDog(dog);
+
+
+            name = string.Empty;
+            sex = string.Empty;
+            breed = string.Empty;
+            url = string.Empty;
+            description = string.Empty;
+
+            statusMessage = "Register successfull";
+
+            await Task.Delay(3000);
+            statusMessage = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Failed to add dog: {ex.Message}";
+        }
+    }
+
+}

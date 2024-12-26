@@ -1,140 +1,111 @@
-﻿using WebApi.Entities;
+﻿using WebApi;
+using WebApi.Entities;
 
-namespace WebApi;
-
-public class DataService: IDataService
+public class DataService : IDataService
 {
-    private readonly List<Project> _projects = new();
-    private readonly List<UserStory> _userStories = new();
-    
+    private List<Project?> _projects = [];
+
+//seeding dummy data
     public DataService()
     {
-        //adding dummy data
         _projects.Add(new Project
         {
-            Id = 1,
+            ProjectId = 1,
             Title = "Project 1",
-            Status = "Active",
-            Responsible = "Himal sharma",
-            UserStory = new List<UserStory>
-            {
+            Status = "In Progress",
+            Responsible = "John Doe",
+            UserStories =
+            [
                 new UserStory
                 {
-                    Id = 1,
+                    UserStoryId = 1,
                     Description = "User Story 1",
-                    Estimate = "5"
+                    Estimate = 3
                 },
+
                 new UserStory
                 {
-                    Id = 2,
+                    UserStoryId = 2,
                     Description = "User Story 2",
-                    Estimate = "8"
+                    Estimate = 5
                 }
-            }
-        });   
+            ]
+        });
         _projects.Add(new Project
         {
-            Id = 2,
+            ProjectId = 2,
             Title = "Project 2",
-            Status = "Active",
-            Responsible = "Rachana Doe",
-            UserStory = new List<UserStory>
-            {
+            Status = "In Progress",
+            Responsible = "Jane Doe",
+            UserStories =
+            [
                 new UserStory
                 {
-                    Id = 1,
-                    Description = "User Story 3",
-                    Estimate = "3"
+                    UserStoryId = 1,
+                    Description = "User Story 1",
+                    Estimate = 8
                 },
+
                 new UserStory
                 {
-                    Id = 2,
-                    Description = "User Story 4",
-                    Estimate = "13"
+                    UserStoryId = 2,
+                    Description = "User Story 2",
+                    Estimate = 13
                 }
-            }
+            ]
         });
-        
-        
     }
-    public void  AddProject(Project project)
+    public Task<Project> AddProjectAsync(Project project)
     {
-        project.Id = _projects.Any()
-            ? _projects.Max(p => p.Id) + 1
+        Console.WriteLine(_projects.Count);
+        project.ProjectId = _projects.Any()
+            ? _projects.Max(p => p.ProjectId) + 1
             : 1;
-        _projects.Add(project);
-    }
-    public Project GetProjectById(int projectId)
+         _projects.Add(project);
+        Console.WriteLine(_projects.Count);
+        return Task.FromResult(project);    }
+
+    public Task<Project> GetProjectByIdAsync(int projectId)
     {
-        var project = _projects.SingleOrDefault(p => p.Id == projectId);
+        var project = _projects.FirstOrDefault(p => p.ProjectId == projectId);
         if (project is null)
         {
-            throw new Exception($"Project not found with id '{projectId}'");
+            throw new Exception($"Post with ID '{projectId}' not found");
         }
 
-        return project;
-    }
+        return Task.FromResult(project);    }
 
-    public Project? GetProjects(string? status = null, string? responsible = null)
+    public Task UpdateProjectAsync(Project project)
     {
-        return _projects.FirstOrDefault(p => p.Status == status && p.Responsible == responsible);
-    }
+        Project? existingPost = _projects.SingleOrDefault(p => p.ProjectId == project.ProjectId);
+        if (existingPost is null)
+        {
+            throw new Exception($"Post with ID '{project.ProjectId}' not found");
+        }
 
+        _projects.Remove(existingPost);
+        _projects.Add(project);
 
-    public void DeleteProjectAsync(int projectId )
+        return Task.CompletedTask;    }
+
+    public Task DeleteProjectAsync(int projectId)
     {
-
-        var projectTORemove = _projects.SingleOrDefault(p => p.Id == projectId);
-        if (projectTORemove is null)
+        var projectToRemove = _projects.SingleOrDefault(p => p.ProjectId == projectId);
+        if (projectToRemove is null)
         {
-            throw new Exception($"projectID{projectId} not found to delete");
+            throw new Exception(
+                $"Post with ID '{projectId}' not found");
         }
 
-        _projects.Remove(projectTORemove);
-    }
-    public void AddUserStory(int projectId, UserStory userStory)
+        _projects.Remove(projectToRemove);
+        return Task.CompletedTask;    }
+
+    public IQueryable<Project> GetManyProjects()
     {
-        var project = _projects.FirstOrDefault(p => p.Id == projectId);
-        if (project == null) throw new Exception("Project not found");
+        return _projects.AsQueryable();    }
 
-        userStory.Id = project.UserStory.Any() ? 
-            project.UserStory.Max(u => u.Id) + 1: 1;
-        project.UserStory.Add(userStory);
-    }
-
-    public UserStory GetUserStoryById(int projectId, int userStoryId)
+    public Task<UserStory> AddUserStoryAsync(int ProjectId, UserStory userStory)
     {
-        var project = _projects.SingleOrDefault(p => p.Id == projectId);
-        if (project == null)
-        {
-            throw new Exception($"Project with ID '{projectId}' not found.");
-        }
-
-        var userStory = project.UserStory.SingleOrDefault(u => u.Id == userStoryId);
-        if (userStory == null)
-        {
-            throw new Exception($"User story with ID '{userStoryId}' not found in project '{projectId}'.");
-        }
-
-        return userStory;
-
+        throw new NotImplementedException();
     }
-
-    public void DeleteUserStoryAsync(int projectId, int userStoryId)
-    {
-        var project = _projects.SingleOrDefault(p => p.Id == projectId);
-        if (project == null)
-        {
-            throw new Exception($"Project with ID '{projectId}' not found.");
-        }
-
-        var userStoryToRemove = project.UserStory.SingleOrDefault(u => u.Id == userStoryId);
-        if (userStoryToRemove == null)
-        {
-            throw new Exception($"User story with ID '{userStoryId}' not found in project '{projectId}'.");
-        }
-
-        project.UserStory.Remove(userStoryToRemove);
-    }
-    
 }

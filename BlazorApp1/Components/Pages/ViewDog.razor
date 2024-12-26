@@ -1,0 +1,74 @@
+﻿@page "/viewdog"
+@using BlazorApp1.Models
+@using BlazorApp1.Service
+@rendermode InteractiveServer
+@inject IKennelService KennelService
+<PageTitle>ViewDog</PageTitle>
+<h3>All the dog we have </h3>
+
+@if (_dogs == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (_dogs.Count == 0)
+{
+    <p>No emails found</p>
+}
+else
+{
+    <div>
+        <div style="display: flex;">
+            <div style="width: 40%; border-right: 1px solid black;">
+                @foreach (var dog in _dogs)
+                {
+                    <div style="cursor: pointer; padding: 5px; border-bottom: 1px solid gray;" @onclick="() => ShowDog(dog)">
+                        <p>
+                            <img src="@dog.ImageUrl" height="80" width="80"/>
+                            <br/>
+                            <strong>Id:</strong>@dog.DogId
+                            <br/>
+                            <strong>Name:</strong>@dog.Name
+                            
+                        </p>
+                    </div>
+                }
+            </div>
+            <div style="width: 60%; padding: 10px;">
+                @if (_selectedDog != null)
+                {
+                    <div>
+                        
+                        <p><strong>ID:</strong> @_selectedDog.DogId</p>
+                        <p><strong>Name:</strong> @_selectedDog.Name</p>
+                        <p><strong>Sex:</strong> @_selectedDog.Sex</p>
+                        <p><strong>Breed:</strong> @_selectedDog.Breed</p>
+                        <p><strong>Arrival Date:</strong> @_selectedDog.RegisterTime</p>
+                        
+                        <img src="@_selectedDog.ImageUrl" height="300" width="300"/>
+                        <br/>
+                        <p>@_selectedDog.Description</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<Dog?>? _dogs;
+    private Dog? _selectedDog;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _dogs = await KennelService.GetDogs();
+    }
+
+    private void ShowDog(Dog? dog)
+    {
+        _selectedDog = dog;
+    }
+
+}
+

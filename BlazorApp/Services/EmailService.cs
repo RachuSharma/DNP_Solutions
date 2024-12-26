@@ -24,6 +24,7 @@ public class EmailService : IEmailService
     public Task SendEmail(Email email)
     {
         email.TimeSent = DateTime.Now;
+        
 
         Console.WriteLine(JsonSerializer.Serialize(email));
         _emails!.Add(email);

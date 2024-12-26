@@ -4,13 +4,13 @@ namespace WebApi;
 
 public interface IDataService
 {
-    void AddProject(Project project);
-    Project GetProjectById(int projectId);
-    Project? GetProjects(string? status = null, string? responsible = null);
-
-    void DeleteProjectAsync(int projectId);
-    void AddUserStory(int projectId, UserStory userStory);
-
-    UserStory GetUserStoryById(int projectId, int userStoryId);
-    void DeleteUserStoryAsync(int projectId, int userStoryId);
+    Task<Project> AddProjectAsync(Project project);
+    Task<Project> GetProjectByIdAsync(int projectId);
+    Task UpdateProjectAsync(Project project);
+    Task DeleteProjectAsync(int projectId);
+    
+    IQueryable<Project> GetManyProjects();
+    
+    Task<UserStory> AddUserStoryAsync(int ProjectId ,UserStory userStory);
+    
 }
