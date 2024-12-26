@@ -12,11 +12,11 @@ public class EmailService : IEmailService
     {
         _emails = new List<Email>
             {
-                new Email("Himal", "Rachu", "Book", "aaaaaaaaa", DateTime.Now),
-                new Email("Ramesh", "Rachu", "Pen", "bbbbbbbbbbbbbbbb", DateTime.Now),
-                new Email("Rachana Sharma", "Rachu", "work", "ccccccccccccc", DateTime.Now),
-                new Email("Gita", "Rachu", "Holiday", "ddddddddddd", DateTime.Now),
-                new Email("Rachana Sharma", "Rachu", "School", "eeeeeeeee", DateTime.Now)
+                new Email("Himal", "Rachana Sharma", "Book", "Did yo like new book?", DateTime.Now),
+                new Email("Ramesh", "Rachana Sharma", "Pen", "I need new pen", DateTime.Now),
+                new Email("Rachana Sharma", "Dilu", "work", "I am going to work tomarrow", DateTime.Now),
+                new Email("Gita", "Rachana Sharma", "Holiday", "I need holiday ", DateTime.Now),
+                new Email("Rachana Sharma", "Prabina", "School", "My new school is very beoutiful", DateTime.Now)
             }
             ;
     }
