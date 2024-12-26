@@ -21,7 +21,7 @@ public class Episode
 
     public Episode()
     {
-        throw new NotImplementedException();
+        
     }
 }
     

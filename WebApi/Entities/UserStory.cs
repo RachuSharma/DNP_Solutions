@@ -6,13 +6,4 @@ public class UserStory
     public string Description { get; set; }
     public float Estimate { get; set; }
     
-    public UserStory(string description, float estimate)
-    {
-        Description = description;
-        Estimate = estimate;
-}
-
-    public UserStory()
-    {
-    }
 }

@@ -27,11 +27,7 @@ public class ProjectsController : ControllerBase
         {
             return BadRequest(new { Message = ex.Message });
         }
-        /*  Project project = new Project(request.Title, request.Status, request.Responsible, request.UserStories);
-        Project created = await _dataService.AddProjectAsync(project);
-       
-        return Created($"/Projects/{created.ProjectId}", created);
-        */
+        
     }
 
     [HttpGet]
