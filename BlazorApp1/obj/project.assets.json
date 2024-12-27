@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp1\\BlazorApp1.csproj",
+      "projectUniqueName": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp1\\BlazorApp1.csproj",
       "projectName": "BlazorApp1",
-      "projectPath": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp1\\BlazorApp1.csproj",
+      "projectPath": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp1\\BlazorApp1.csproj",
       "packagesPath": "C:\\Users\\racha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp1\\obj\\",
+      "outputPath": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

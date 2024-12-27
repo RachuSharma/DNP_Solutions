@@ -2388,11 +2388,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\EntityFramework\\EntityFramework.csproj",
+      "projectUniqueName": "E:\\Semester3\\DNP\\ExamTest\\EntityFramework\\EntityFramework.csproj",
       "projectName": "EntityFramework",
-      "projectPath": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\EntityFramework\\EntityFramework.csproj",
+      "projectPath": "E:\\Semester3\\DNP\\ExamTest\\EntityFramework\\EntityFramework.csproj",
       "packagesPath": "C:\\Users\\racha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\EntityFramework\\obj\\",
+      "outputPath": "E:\\Semester3\\DNP\\ExamTest\\EntityFramework\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

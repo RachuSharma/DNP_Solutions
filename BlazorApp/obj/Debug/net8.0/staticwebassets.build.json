@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "heA1PqTufhRXZCszDaO0LDksGCxtErOMPmkrchgx3dM=",
+  "Hash": "WA30vy21/cL5PoJzoA5zS+aX6vjelHHKGT+d0ax0uDo=",
   "Source": "BlazorApp",
   "BasePath": "_content/BlazorApp",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BlazorApp\\wwwroot",
       "Source": "BlazorApp",
-      "ContentRoot": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp.styles.css",
+      "Identity": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp.styles.css",
       "SourceId": "BlazorApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "BlazorApp#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "3W8wvjCoA3cEZdImdtIrDqmx/bNax/z9zChK5WgZ08E=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp.styles.css"
+      "OriginalItemSpec": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp.styles.css"
     },
     {
-      "Identity": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
+      "Identity": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
       "SourceId": "BlazorApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "BlazorApp#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "3W8wvjCoA3cEZdImdtIrDqmx/bNax/z9zChK5WgZ08E=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css"
+      "OriginalItemSpec": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\app.css",
+      "Identity": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\app.css",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "app#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\favicon.png",
+      "Identity": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\favicon.png",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "favicon#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -146,7 +146,7 @@
   "Endpoints": [
     {
       "Route": "app.css",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\app.css",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -167,7 +167,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Nov 2024 19:50:18 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -183,7 +183,7 @@
     },
     {
       "Route": "app.da95v2qkru.css",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\app.css",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -204,7 +204,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Nov 2024 19:50:18 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -228,7 +228,7 @@
     },
     {
       "Route": "BlazorApp.bundle.scp.css",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -249,7 +249,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 22:02:12 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -265,7 +265,7 @@
     },
     {
       "Route": "BlazorApp.styles.css",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp.styles.css",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -286,7 +286,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 22:02:12 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -302,7 +302,7 @@
     },
     {
       "Route": "BlazorApp.x7csz8uxo5.bundle.scp.css",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -323,7 +323,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 22:02:12 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -347,7 +347,7 @@
     },
     {
       "Route": "BlazorApp.x7csz8uxo5.styles.css",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp.styles.css",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BlazorApp.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -368,7 +368,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 22:02:12 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -392,7 +392,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -413,7 +413,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Nov 2024 19:50:18 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -437,7 +437,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -458,7 +458,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Nov 2024 19:50:18 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -474,7 +474,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -495,7 +495,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Nov 2024 19:50:18 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -519,7 +519,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -540,7 +540,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Nov 2024 19:50:18 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -556,7 +556,7 @@
     },
     {
       "Route": "favicon.ifv42okdf2.png",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\favicon.png",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -577,7 +577,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Nov 2024 19:50:18 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -601,7 +601,7 @@
     },
     {
       "Route": "favicon.png",
-      "AssetFile": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\BlazorApp\\wwwroot\\favicon.png",
+      "AssetFile": "E:\\Semester3\\DNP\\ExamTest\\BlazorApp\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -622,7 +622,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 25 Nov 2024 19:50:18 GMT"
+          "Value": "Thu, 26 Dec 2024 22:13:16 GMT"
         },
         {
           "Name": "Cache-Control",

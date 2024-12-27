@@ -466,11 +466,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "E:\\Semester3\\DNP\\ExamTest\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\WebApi\\WebApi.csproj",
+      "projectPath": "E:\\Semester3\\DNP\\ExamTest\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\racha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\racha\\RiderProjects\\DNPEXAMTEST\\WebApi\\obj\\",
+      "outputPath": "E:\\Semester3\\DNP\\ExamTest\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

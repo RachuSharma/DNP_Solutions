@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework", "EntityFr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{796FE9DD-4030-413D-90A7-DC53A7B00F51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationNew", "WebApplicationNew\WebApplicationNew.csproj", "{F1EBFADE-23F3-4788-A9B1-DBDBC71B9D4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{796FE9DD-4030-413D-90A7-DC53A7B00F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{796FE9DD-4030-413D-90A7-DC53A7B00F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{796FE9DD-4030-413D-90A7-DC53A7B00F51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1EBFADE-23F3-4788-A9B1-DBDBC71B9D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1EBFADE-23F3-4788-A9B1-DBDBC71B9D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1EBFADE-23F3-4788-A9B1-DBDBC71B9D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1EBFADE-23F3-4788-A9B1-DBDBC71B9D4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
