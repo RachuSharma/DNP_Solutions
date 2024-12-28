@@ -1,0 +1,90 @@
+﻿@page "/NewYearBookEntry"
+@using BlazorAppA.Entities
+@using BlazorAppA.Service
+<h3>NewYearBookEntry</h3>
+@inject IYearBookService YearBookService
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="NameInput" class="form-label">Dog Name</label>
+            <input type="text" id="NameInput" class="form-control" @bind="name" placeholder="Enter your name"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="PronounsInput" class="form-label">Pronouns</label>
+            <input type="text" id="PronounsInput" class="form-control" @bind="pronouns" placeholder="Enter Pronouns"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="FunfactInput" class="form-label">Fun Fact</label>
+            <input type="text" id="FunFactInput" class="form-control" @bind="funFact" placeholder="Enter breed"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="urlInput" class="form-label">ImageUrl</label>
+            <input type="text" id="urlInput" class="form-control" @bind="url" placeholder="Enter image url"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="YearInput" class="form-label">Started Year</label>
+            <input type="text" id="YearInput" class="form-control" @bind="year" placeholder="Enter Started date"/>
+
+        </div>
+    </div>
+</div>
+<br/>
+<p role="status" class="alert @alertClass">@statusMessage</p>
+<button class="btn btn-primary" @onclick="submit">Submit</button>
+
+@code {
+    private int id;
+    private string name;
+    private string pronouns;
+    private string funFact;
+    private string url;
+    private int year;
+    private string alertClass;
+    private string statusMessage;
+
+    private async Task submit()
+    {
+        if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(pronouns) || string.IsNullOrWhiteSpace(funFact) || string.IsNullOrWhiteSpace(url) || year == 0)
+
+        {
+            statusMessage = "All fields are required.";
+            alertClass = "alert-danger";
+            await Task.Delay(3000);
+            statusMessage = string.Empty;
+            return;
+        }
+
+        try
+        {
+            var yearBook = new YearBookEntry(id, name, pronouns, funFact, url, year);
+            await YearBookService.RegisterYearBookEntry(yearBook);
+
+
+            name = string.Empty;
+            pronouns = string.Empty;
+            funFact = string.Empty;
+            url = string.Empty;
+            year = 0;
+            statusMessage = "Register successfull";
+            alertClass = "alert-success";
+
+            await Task.Delay(3000);
+            statusMessage = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Failed to add dog: {ex.Message}";
+        }
+    }
+
+
+}

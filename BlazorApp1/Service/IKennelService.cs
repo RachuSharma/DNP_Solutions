@@ -6,4 +6,5 @@ public interface IKennelService
 {
     public Task RegisterDog(Dog dog);
     public Task<List<Dog>> GetDogs(); 
+    
 }

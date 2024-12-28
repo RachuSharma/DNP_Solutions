@@ -1,0 +1,99 @@
+﻿@page "/ViewYearBook"
+@using BlazorAppA.Entities
+@using BlazorAppA.Service
+@inject IYearBookService YearBookService
+
+<h3>ViewYearBook</h3>
+
+<p>
+    <b>Total number of yearbook entries:</b> @_yearBookEntries.Count()
+</p>
+<SomeComponent/>
+
+@if (_yearBookEntries == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (_yearBookEntries.Count == 0)
+{
+    <p>No entries to display.</p>
+}
+else
+{
+    <div>
+        <div style="display: flex;">
+            <div style="width: 40%; border-right: 1px solid black;">
+                @foreach (var yearBookEntry in _yearBookEntries)
+                {
+                    <!-- Display by old yearbook entries-->
+
+
+                    <div style="cursor: pointer; padding: 5px; border-bottom: 1px solid gray;" @onclick="() => ShowNewYearentries(yearBookEntry)">
+                        <p>
+                            <img src="@yearBookEntry.ImageUrl" height="80" width="80"/>
+                            <br/>
+                            <strong>Name:</strong>@yearBookEntry.Name
+                            <br/>
+                            @yearBookEntry.Pronouns @yearBookEntry.Year
+                        </p>
+                    </div>
+                }
+            </div>
+            <div style="width: 60%; padding: 10px;">
+                @if (_selectedYearBookEntry != null)
+                {
+                    <div>
+
+                        <p>
+                            <strong>ID:</strong> @_selectedYearBookEntry.Id
+                        </p>
+                        <p>
+                            <strong>Name:</strong> @_selectedYearBookEntry.Name
+                        </p>
+                        <p>
+                            <strong>Pronouns:</strong> @_selectedYearBookEntry.Pronouns
+                        </p>
+                        <p>
+                            <strong>ImageUrl:</strong> @_selectedYearBookEntry.ImageUrl
+                        </p>
+                        <p>
+                            <strong>Year:</strong> @_selectedYearBookEntry.Year
+                        </p>
+
+                        <img src="@_selectedYearBookEntry.ImageUrl" height="300" width="300"/>
+                        <br/>
+                        <b>
+                            <p>@_selectedYearBookEntry.FunFact</p>
+                        </b>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code{
+    private List<YearBookEntry> _yearBookEntries = new List<YearBookEntry>();
+    private YearBookEntry? _selectedYearBookEntry;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _yearBookEntries = await YearBookService.GetYearBookEntries();
+        }
+        catch (Exception e)
+        {
+            Console.Error.WriteLine($"Error loading yearbook entries: {e.Message}");
+            _yearBookEntries = new List<YearBookEntry>();
+        }
+    }
+
+    private void ShowNewYearentries(YearBookEntry yearBookEntry)
+    {
+        _selectedYearBookEntry = yearBookEntry;
+    }
+
+}

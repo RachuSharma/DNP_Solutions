@@ -1,0 +1,51 @@
+﻿@using BlazorAppA.Service
+
+@inject IYearBookService YearBookService
+
+<div>
+
+    <!-- Display number of yearbook entries for total  -->
+    <p>
+        <b>2020:</b> @yearBookEntries2020
+    </p>
+    <p>
+        <b>2021:</b> @yearBookEntries2021
+    </p>
+    <p>
+        <b>2022:</b> @yearBookEntries2022
+    </p>
+    <p>
+        <b>2023:</b> @yearBookEntries2023
+    </p>
+    <p>
+        <b>2024:</b> @yearBookEntries2024
+    </p>
+    <p>
+        <b>2025:</b> @yearBookEntries2025
+    </p>
+
+</div>
+
+@code {
+
+    private int yearBookEntries2020;
+    private int yearBookEntries2021;
+    private int yearBookEntries2022;
+    private int yearBookEntries2023;
+    private int yearBookEntries2024;
+    private int yearBookEntries2025;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var yearBookEntries = await YearBookService.GetYearBookEntries();
+
+        yearBookEntries2020 = yearBookEntries.Count(yearBookEntries => yearBookEntries.Year == 2020);
+        yearBookEntries2021 = yearBookEntries.Count(yearBookEntries => yearBookEntries.Year == 2021);
+        yearBookEntries2022 = yearBookEntries.Count(yearBookEntries => yearBookEntries.Year == 2022);
+        yearBookEntries2023 = yearBookEntries.Count(yearBookEntries => yearBookEntries.Year == 2023);
+        yearBookEntries2024 = yearBookEntries.Count(yearBookEntries => yearBookEntries.Year == 2024);
+        yearBookEntries2025 = yearBookEntries.Count(yearBookEntries => yearBookEntries.Year == 2025);
+    }
+
+}
