@@ -45,7 +45,7 @@ public class ProjectsController : ControllerBase
     }
 
     [HttpGet("{projectId}")]
-    public async Task<IActionResult> GetsingleProject( [FromQuery]int projectId)
+    public async Task<IActionResult> GetsingleProject( [FromRoute]int projectId)
     {
         try
         {

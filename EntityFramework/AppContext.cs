@@ -11,5 +11,13 @@ public class AppContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source=shows.db");
+        
     }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Show>()
+            .HasKey(s => s.ShowId);
+        modelBuilder.Entity<Episode>()
+            .HasKey(e => e.EpisodeId);}
 }

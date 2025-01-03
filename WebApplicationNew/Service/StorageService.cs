@@ -1,12 +1,12 @@
-﻿using WebApplicationSecound.Entities;
+﻿using WebApplicationNew.DTOs;
+using WebApplicationSecound.Entities;
 
 namespace WebApplicationSecound.Service;
 
 public class StorageService : IStorageService
 {
     private List<StorageRoom> _storageRooms = [];
-    private List<Box> _boxes = [];
-
+    private int NewBoxId;
 
     public StorageService()
     {
@@ -20,7 +20,7 @@ public class StorageService : IStorageService
             {
                 new Box
                 {
-                    BoxId = 1, Label = "Kitchen", Dimensions = new Dimension
+                    BoxId = NewBoxId++ , Label = "Kitchen", Dimensions = new Dimension
                     {
                         Length = 1, Width = 1, Height = 1
                     }
@@ -38,7 +38,7 @@ public class StorageService : IStorageService
             {
                 new Box
                 {
-                    BoxId = 1, Label = "Old Books", Dimensions = new Dimension
+                    BoxId = NewBoxId++, Label = "Old Books", Dimensions = new Dimension
                     {
                         Length = 2, Width = 2, Height = 2
                     }
@@ -56,7 +56,7 @@ public class StorageService : IStorageService
             {
                 new Box
                 {
-                    BoxId = 1, Label = "New Books", Dimensions = new Dimension
+                    BoxId = NewBoxId++, Label = "New Books", Dimensions = new Dimension
                     {
                         Length = 3, Width = 3, Height = 3
                     }
@@ -74,7 +74,7 @@ public class StorageService : IStorageService
             {
                 new Box
                 {
-                    BoxId = 1, Label = "Old Toys", Dimensions = new Dimension
+                    BoxId = NewBoxId++, Label = "Old Toys", Dimensions = new Dimension
                     {
                         Length = 4, Width = 4, Height = 4
                     }
@@ -92,7 +92,7 @@ public class StorageService : IStorageService
             {
                 new Box
                 {
-                    BoxId = 1, Label = "New Toys", Dimensions = new Dimension
+                    BoxId = NewBoxId++, Label = "New Toys", Dimensions = new Dimension
                     {
                         Length = 5, Width = 5, Height = 5
                     }
@@ -101,21 +101,22 @@ public class StorageService : IStorageService
         });
     }
 
-    public Task<Box> AddBoxAsync(int storageRoomId ,Box box)
+    public Task<Box> AddBoxAsync(int storageRoomId ,CreateBoxDto box)
     {
-        Console.WriteLine(_boxes.Count);
-        box.BoxId = _boxes.Any()
-            ? _boxes.Max(p => p.BoxId) + 1
-            : 1;
-        _boxes.Add(box);
-        Console.WriteLine(_boxes.Count);
-        return Task.FromResult(box);
+        Box newBox = new Box()
+        {
+            BoxId = NewBoxId++,
+            Dimensions = box.Dimesnsion,
+            Label = box.Label
+        };
+        _storageRooms.Single(p => p.StorageRoomId == storageRoomId).Boxes.Add(newBox);
+        return Task.FromResult(newBox);
     }
 
     public Task<Box> GetBoxByIdAsync(int storageRoomId, int boxId)
     {
         var storageRoom = _storageRooms.FirstOrDefault(p => p.StorageRoomId == storageRoomId);
-        var box = _boxes.FirstOrDefault(p => p.BoxId == boxId);
+        var box = storageRoom?.Boxes.FirstOrDefault(p => p.BoxId == boxId);
         if (box is null)
         {
             throw new Exception(
@@ -129,7 +130,7 @@ public class StorageService : IStorageService
 
     public Task DeleteBoxAsync( int storageRoomId, int boxId)
     {
-        var BoxToRemove = _boxes.SingleOrDefault(p => p.BoxId == boxId);
+        /*var BoxToRemove = _boxes.SingleOrDefault(p => p.BoxId == boxId);
         if (BoxToRemove is null)
         {
             throw new Exception(
@@ -137,7 +138,8 @@ public class StorageService : IStorageService
         }
 
         _boxes.Remove(BoxToRemove);
-        return Task.CompletedTask;
+        return Task.CompletedTask;*/
+        throw new NotImplementedException();
     }
 
     public Task<IEnumerable<StorageRoom>> GetAllStorageRoomsAsync(StorageRoom? storageRoom = null)

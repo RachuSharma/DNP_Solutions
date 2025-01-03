@@ -4,7 +4,7 @@ namespace EntityFramework.Entities;
 
 public class Show
 {
-    [Key] public int Id { get; set; }
+    [Key] public int ShowId { get; set; }
     public string Title { get; set; } = null!;
     public short Year { get; set; }
     public string Genre { get; set; } = null!;

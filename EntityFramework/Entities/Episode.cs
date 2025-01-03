@@ -5,7 +5,7 @@ namespace EntityFramework.Entities;
 public class Episode
 {
     [Key]
-    public int Id { get; set; }
+    public int EpisodeId { get; set; }
     public string Title { get; set; } = null!;
     public int Runtime { get; set; }
     

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EFCA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+adde651dd4ec66db666ec1849a6f6dc3989cdf55")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16a80b599e7f5de2875550c9ea6b3c453e385439")]
 [assembly: System.Reflection.AssemblyProductAttribute("EFCA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EFCA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

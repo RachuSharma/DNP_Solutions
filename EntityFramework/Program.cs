@@ -23,14 +23,22 @@ using (var ctx = new AppContext())
     var episode4 = new Episode("Cat's in the Bag...", 48, "S01");
     show2.Episodes.AddRange(new[] { episode3, episode4 });
     
-    await dataAccess.createShowAsync(show1);
-    await dataAccess.createShowAsync(show2);
+    await ctx.Shows.AddAsync(show1);
+    await ctx.Shows.AddAsync(show2);
+    await ctx.SaveChangesAsync();
+    
+    
+    
+    Console.WriteLine("Data added! " + show1.ShowId + show1.Title + show2.ShowId + show2.Title);
+  
+    
+    
     
     
     
     
 
-    Console.WriteLine("Data added! " + show1.Id + show1.Title + show2.Id + show2.Title);
+    Console.WriteLine("Data added! " + show1.ShowId + show1.Title + show2.ShowId + show2.Title);
     Console.WriteLine(dataAccess.GetAll());
     Console.ReadLine();
     

@@ -67,6 +67,7 @@ public class InMemoryYearBookService : IYearBookService
 
     public Task<List<YearBookEntry>> GetYearBookEntries()
     {
-        return Task.FromResult(_yearBookEntries);
+        var sortedList = _yearBookEntries.OrderBy(x => x.Year).ToList();
+        return Task.FromResult(sortedList);
     }
 }

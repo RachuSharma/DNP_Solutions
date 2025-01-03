@@ -47,12 +47,12 @@ public class ProfilesController : ControllerBase
         }
     }
     
-    [HttpPost("/api/[controller]/like")]
-    public async Task<IActionResult> LikeProfile([FromQuery] int profileId, [FromQuery] int likedProfileId)
+    [HttpPost("/api/[controller]/like/{ProfileId}/{LikedProfileId}")]
+    public async Task<IActionResult> LikeProfile( int ProfileId, int LikedProfileId)
     {
         try
         {
-            var like = await _matchService.LikeProfile(profileId, likedProfileId);
+            var like = await _matchService.LikeProfile(ProfileId, LikedProfileId);
             return Ok(like);
         }
         catch (Exception e)

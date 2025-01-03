@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using WebApplicationNew.DTOs;
 using WebApplicationSecound.Entities;
 using WebApplicationSecound.Service;
 
 namespace WebApplicationSecound.Controller;
 
 [Route("api/[controller]")]
+[ApiController]
 public class StorageRoomController : ControllerBase
 {
     private readonly IStorageService _storageService;
@@ -16,9 +18,8 @@ public class StorageRoomController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddBoxAsync([FromQuery] int storageRoomId, [FromBody] Box _box)
+    public async Task<IActionResult> AddBoxAsync([FromQuery] int storageRoomId, [FromBody] CreateBoxDto _box)
     {
-        var storageRoom = new StorageRoom { StorageRoomId = storageRoomId };
         try
         {
             var box = await _storageService.AddBoxAsync(storageRoomId, _box);
@@ -29,10 +30,10 @@ public class StorageRoomController : ControllerBase
             return BadRequest(new { Message = ex.Message });
         }
     }
-    /*
+
 
     [HttpGet]
-    public async Task<IActionResult> GetSingleBoxAsync([FromQuery] int storageRoomId,[FromQuery] int boxId)
+    public async Task<IActionResult> GetSingleBoxAsync([FromQuery] int storageRoomId, [FromQuery] int boxId)
     {
         var storageRoom = new StorageRoom { StorageRoomId = storageRoomId };
 
@@ -48,8 +49,7 @@ public class StorageRoomController : ControllerBase
     }
 
     [HttpDelete]
-
-    public async Task<IActionResult> DeleteBoxAsync( [FromQuery] int storageRoomId,[FromQuery] int boxId)
+    public async Task<IActionResult> DeleteBoxAsync([FromQuery] int storageRoomId, [FromQuery] int boxId)
     {
         var storageRoom = new StorageRoom { StorageRoomId = storageRoomId };
 
@@ -62,10 +62,9 @@ public class StorageRoomController : ControllerBase
         {
             return BadRequest(new { Message = ex.Message });
         }
-
     }
 
-    [HttpGet]
+    [HttpGet ("storageRooms")]
     public async Task<IActionResult> GetStorageRoomsAsync()
     {
         try
@@ -75,6 +74,7 @@ public class StorageRoomController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest(new { Message = ex.Message });}
-        }*/
+            return BadRequest(new { Message = ex.Message });
+        }
+    }
 }
