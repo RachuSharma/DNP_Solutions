@@ -69,12 +69,19 @@ var dataAccess = new DataAccess(ctx);
     
 
     await dataAccess.CreateRoomAsync(room1);
+    await dataAccess.CreateRoomAsync(room2);
+    await dataAccess.CreateRoomAsync(room3);
+    
 
 
     
-    await dataAccess.AddReservationAsync(101, 1, reservation1);
-    await dataAccess.AddReservationAsync(201, 2, reservation2);
-    await dataAccess.AddReservationAsync(202, 2, reservation3);
+    await dataAccess.AddReservationAsync(1, 1, reservation1);
+
+    var allRooms = await dataAccess.GetAllRoomsAsync();
+    foreach (var VARIABLE in allRooms )
+    {
+     Console.WriteLine(VARIABLE.Id);   
+    }
         
     var rooms = await dataAccess.GetRoomsAsync(2, true);
     foreach (var room in rooms)
@@ -82,3 +89,4 @@ var dataAccess = new DataAccess(ctx);
         Console.WriteLine(room);
     }
         
+Console.ReadLine();

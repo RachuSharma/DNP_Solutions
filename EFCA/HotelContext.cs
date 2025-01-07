@@ -11,7 +11,7 @@ public class HotelContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //TODO: Download Microsoft.Data.Sqlite
-        optionsBuilder.UseSqlite("Data Source=Hotel.db");
+        optionsBuilder.UseSqlite("Data Source=../../../Hotel.db");
     }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)

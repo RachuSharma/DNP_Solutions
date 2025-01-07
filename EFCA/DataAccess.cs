@@ -78,20 +78,4 @@ public class DataAccess
         }
     }
 
-    //Get earnings for date interval
-    /*public async Task<int> GetEarningsAsync(DateTime startDate, DateTime endDate)
-    {
-        try
-        {
-            var reservations = await _ctx.Reservations
-                .Where(r => r.CheckInDate >= startDate && r.CheckInDate <= endDate)
-                .ToListAsync();
-            return reservations.Sum(r => r.Room.PricePerNight * r.NumberOfNights + (r.BreakfastIncluded ? 20 : 0));
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Error in getting earnings: " + e.Message);
-            return 0;
-        }
-    }*/
 }

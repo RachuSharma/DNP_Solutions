@@ -13,6 +13,7 @@ public class Room
     public int NumberOfBeds { get; set; }
     public bool HasSpa { get; set; }
     
+    public int ReservationId { get; set; }
     public List<Reservation> Reservations { get; set; }
     
     
