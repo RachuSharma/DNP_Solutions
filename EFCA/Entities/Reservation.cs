@@ -20,13 +20,6 @@ public class Reservation
     
    
    //Constructor
-   public Reservation(string guestName, DateTime checkInDate, int numberOfNights, bool breakfastIncluded)
-   {
-       GuestName = guestName;
-       CheckInDate = checkInDate;
-       NumberOfNights = numberOfNights;
-       BreakfastIncluded = breakfastIncluded;
-   }
    
     public Reservation()
     {

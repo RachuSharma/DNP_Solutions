@@ -7,6 +7,7 @@ public class StorageService : IStorageService
 {
     private List<StorageRoom> _storageRooms = [];
     private int NewBoxId;
+    private int NewStorageRoomId;
 
     public StorageService()
     {
@@ -99,6 +100,20 @@ public class StorageService : IStorageService
                 }
             }
         });
+    }
+
+    public Task<StorageRoom> CreateStorageRoomAsync(CreateStorageRoomDto storageRoom)
+    {
+        StorageRoom newStorageRoom = new StorageRoom
+        {
+            StorageRoomId = NewStorageRoomId++,
+            Location = storageRoom.Location,
+            Dimensions = storageRoom.Dimensions,
+            Boxes = storageRoom.Boxes
+        };
+        _storageRooms.Add(newStorageRoom);
+        return Task.FromResult(newStorageRoom);
+        
     }
 
     public Task<Box> AddBoxAsync(int storageRoomId ,CreateBoxDto box)

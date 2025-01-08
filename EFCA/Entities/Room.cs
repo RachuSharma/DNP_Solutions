@@ -18,15 +18,6 @@ public class Room
     
     
     //Constructor
-    public Room(string theme, int floorNumber, int roomNumber, int pricePerNight, int numberOfBeds, bool hasSpa)
-    {
-        Theme = theme;
-        FloorNumber = floorNumber;
-        RoomNumber = roomNumber;
-        PricePerNight = pricePerNight;
-        NumberOfBeds = numberOfBeds;
-        HasSpa = hasSpa;
-    }
     
     public Room()
     {

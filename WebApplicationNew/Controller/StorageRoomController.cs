@@ -16,6 +16,22 @@ public class StorageRoomController : ControllerBase
     {
         _storageService = storageService;
     }
+    
+    
+    /*
+    [HttpPost]
+    public async Task<IActionResult> CreateStorageRoomAsync([FromBody] CreateStorageRoomDto _storageRoom)
+    {
+        try
+        {
+            var storageRoom = await _storageService.CreateStorageRoomAsync(_storageRoom);
+            return Ok(storageRoom);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { Message = ex.Message });
+        }
+    }*/
 
     [HttpPost]
     public async Task<IActionResult> AddBoxAsync([FromQuery] int storageRoomId, [FromBody] CreateBoxDto _box)

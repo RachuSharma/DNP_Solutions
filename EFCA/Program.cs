@@ -10,6 +10,7 @@ var dataAccess = new DataAccess(ctx);
 
     var room1 = new Room
     {
+        Id = 1,
         Theme = "Modern",
         FloorNumber = 1,
         RoomNumber = 101,
@@ -20,6 +21,7 @@ var dataAccess = new DataAccess(ctx);
 
     var room2 = new Room
     {
+        Id = 2,
         Theme = "Classic",
         FloorNumber = 2,
         RoomNumber = 201,
@@ -30,6 +32,7 @@ var dataAccess = new DataAccess(ctx);
 
     var room3 = new Room
     {
+        Id = 3,
         Theme = "Modern",
         FloorNumber = 2,
         RoomNumber = 202,
@@ -40,6 +43,7 @@ var dataAccess = new DataAccess(ctx);
 
     var reservation1 = new Reservation
     {
+        Id = 1,
         GuestName = "John Doe",
         CheckInDate = DateTime.Now,
         NumberOfNights = 3,
@@ -50,6 +54,7 @@ var dataAccess = new DataAccess(ctx);
 
     var reservation2 = new Reservation
     {
+        Id = 2,
         GuestName = "Jane Doe",
         CheckInDate = DateTime.Now,
         NumberOfNights = 2,
@@ -59,6 +64,7 @@ var dataAccess = new DataAccess(ctx);
 
     var reservation3 = new Reservation
     {
+        Id = 3,
         GuestName = "Jane Doe",
         CheckInDate = DateTime.Now,
         NumberOfNights = 2,
@@ -75,7 +81,7 @@ var dataAccess = new DataAccess(ctx);
 
 
     
-    await dataAccess.AddReservationAsync(1, 1, reservation1);
+    await dataAccess.AddReservationAsync(1, 1, reservation1);   
 
     var allRooms = await dataAccess.GetAllRoomsAsync();
     foreach (var VARIABLE in allRooms )

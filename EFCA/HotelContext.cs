@@ -18,9 +18,13 @@ public class HotelContext : DbContext
     {
         modelBuilder.Entity<Room>()
             .HasKey(r => r.Id);
+        
 
         modelBuilder.Entity<Reservation>()
             .HasKey(r => r.Id);
+        
     }
+    
+    
     
 }

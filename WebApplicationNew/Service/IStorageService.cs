@@ -5,6 +5,9 @@ namespace WebApplicationSecound.Service;
 
 public interface IStorageService
 {
+    
+    Task<StorageRoom> CreateStorageRoomAsync(CreateStorageRoomDto storageRoom);
+    
     Task<Box> AddBoxAsync(int storageRoomId,CreateBoxDto box);
     Task<Box> GetBoxByIdAsync(int storageRoomId,int boxId);
     Task DeleteBoxAsync(int storageRoomId, int boxId);

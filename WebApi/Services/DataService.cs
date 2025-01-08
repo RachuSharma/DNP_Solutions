@@ -1,4 +1,5 @@
 ﻿using WebApi;
+using WebApi.DTOs;
 using WebApi.Entities;
 
 public class DataService : IDataService
@@ -65,6 +66,7 @@ public class DataService : IDataService
         _projects.Add(project);
         Console.WriteLine(_projects.Count);
         return Task.FromResult(project);
+        
     }
 
     public Task<Project> GetProjectByIdAsync(int projectId)
